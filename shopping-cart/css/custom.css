@@ -33,6 +33,11 @@ header {
     font-weight: bold;
 }
 
+.img-item {
+    display: block;
+    max-width: 80px;
+}
+
 ul {
     list-style: none;
 }
