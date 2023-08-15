@@ -1,7 +1,7 @@
 const coursesWrapper = document.querySelector("#lista-cursos");
 const cart = document.querySelector("#carrito");
 
-const courses = [
+const COURSES = [
   {
     id: 1,
     thumb: "img/curso1.jpg",
@@ -52,7 +52,7 @@ const courses = [
   },
 ];
 
-function main() {
+function renderCourses(courses) {
   courses.forEach(item => {
     const course = `
       <img src="${item.thumb}" class="imagen-curso u-full-width" />
@@ -76,6 +76,10 @@ function main() {
 
     coursesWrapper.appendChild(nodeElement);
   });
+}
+
+function main() {
+  renderCourses(COURSES);
 }
 
 main();
