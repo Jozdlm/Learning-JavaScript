@@ -52,6 +52,8 @@ const COURSES = [
   },
 ];
 
+let shoppingCart = [];
+
 function renderCourses(courses) {
   courses.forEach(item => {
     const course = `
@@ -61,12 +63,13 @@ function renderCourses(courses) {
         <p>${item.instructor}</p>
         <img src="img/estrellas.png" />
         <p class="precio">$200 <span class="u-pull-right">$15</span></p>
-        <a
+        <button
           href="#"
           class="u-full-width button-primary button input agregar-carrito"
-          data-id="${item.id}"
-          >Agregar Al Carrito</a
+          onclick="addToCart(${item.id})"
         >
+          Agregar Al Carrito
+        </button>
       </div>
     `;
 
@@ -76,6 +79,12 @@ function renderCourses(courses) {
 
     coursesWrapper.appendChild(nodeElement);
   });
+}
+
+function addToCart(itemId) {
+  const item = COURSES.find(item => item.id == itemId);
+  shoppingCart = [...shoppingCart, item];
+  console.log(shoppingCart);
 }
 
 function main() {
