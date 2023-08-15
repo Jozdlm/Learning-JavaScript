@@ -1,4 +1,5 @@
 const coursesWrapper = document.querySelector("#lista-cursos");
+const cartWrapper = document.querySelector("#lista-carrito");
 const cart = document.querySelector("#carrito");
 
 const COURSES = [
@@ -89,6 +90,29 @@ function renderCourses(courses) {
   });
 }
 
+function renderCart() {
+  cartWrapper.innerHTML = "";
+
+  shoppingCart.forEach(item => {
+    const cartItem = `
+      <td>
+        <img src="${item.thumb}" class="img-item" />
+      </td>
+      <td>${item.title}</td>
+      <td>${item.quantity}</td>
+      <td>${item.price}</td>
+      <td>
+        <button>x</button>
+      </td>
+    `;
+
+    const nodeElement = document.createElement('tr');
+    nodeElement.innerHTML = cartItem;
+
+    cartWrapper.appendChild(nodeElement);
+  })
+}
+
 function addToCart(itemId) {
   const cartItem = shoppingCart.find(item => item.id == itemId);
   const course = COURSES.find(item => item.id == itemId);
@@ -110,7 +134,7 @@ function addToCart(itemId) {
     shoppingCart = [...shoppingCart, newItem];
   }
 
-  console.log(shoppingCart);
+  renderCart();
 }
 
 function main() {
