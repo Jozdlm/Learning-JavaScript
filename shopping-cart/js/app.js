@@ -7,48 +7,56 @@ const COURSES = [
     thumb: "img/curso1.jpg",
     title: "HTML5, CSS3, JavaScript para Principiantes",
     instructor: "Juan Pedro",
+    price: 15
   },
   {
     id: 2,
     thumb: "img/curso2.jpg",
     title: "Curso de Comida Vegetariana",
     instructor: "Maria Alvarado",
+    price: 15
   },
   {
     id: 3,
     thumb: "img/curso3.jpg",
     title: "Guitarra para Principiantes",
     instructor: "Otto Pérez",
+    price: 15
   },
   {
     id: 4,
     thumb: "img/curso4.jpg",
     title: "Huerto en tu casa",
     instructor: "Estrella de León",
+    price: 15
   },
   {
     id: 5,
     thumb: "img/curso5.jpg",
     title: "Decoración con productos de tu hogar",
     instructor: "Maria Ortega",
+    price: 15
   },
   {
     id: 6,
     thumb: "img/curso1.jpg",
     title: "Diseño Web para Principiantes",
     instructor: "Gustavo Hernandez",
+    price: 15
   },
   {
     id: 7,
     thumb: "img/curso2.jpg",
     title: "Comida Mexicana para principiantes",
     instructor: "Maria Alvarado",
+    price: 15
   },
   {
     id: 8,
     thumb: "img/curso3.jpg",
     title: "Estudio Musical en tu casa",
     instructor: "Juan Pedro",
+    price: 15
   },
 ];
 
