@@ -1,4 +1,4 @@
-const coursesWrapper = document.querySelector("#courses-wrapper");
+const coursesWrapper = document.querySelector("#lista-cursos");
 const cart = document.querySelector("#carrito");
 
 const courses = [
