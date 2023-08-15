@@ -103,7 +103,7 @@ function renderCart() {
       <td>${item.quantity}</td>
       <td>${item.price}</td>
       <td>
-        <button>x</button>
+        <button onclick="deleteItemCart(${item.id})">x</button>
       </td>
     `;
 
@@ -135,6 +135,11 @@ function addToCart(itemId) {
     shoppingCart = [...shoppingCart, newItem];
   }
 
+  renderCart();
+}
+
+function deleteItemCart(itemId) {
+  shoppingCart = shoppingCart.filter(item => item.id != itemId);
   renderCart();
 }
 
