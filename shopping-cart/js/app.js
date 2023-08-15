@@ -1,6 +1,7 @@
 const coursesWrapper = document.querySelector("#lista-cursos");
 const cartWrapper = document.querySelector("#lista-carrito");
 const cart = document.querySelector("#carrito");
+const clearCartButton = document.querySelector("#vaciar-carrito");
 
 const COURSES = [
   {
@@ -137,8 +138,15 @@ function addToCart(itemId) {
   renderCart();
 }
 
+function clearShoppingCart() {
+  shoppingCart = [];
+  cartWrapper.innerHTML = "";
+}
+
 function main() {
   renderCourses(COURSES);
+
+  clearCartButton.addEventListener('click', clearShoppingCart);
 }
 
 main();
