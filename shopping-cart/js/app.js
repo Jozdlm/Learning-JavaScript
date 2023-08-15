@@ -94,13 +94,15 @@ function addToCart(itemId) {
   const course = COURSES.find(item => item.id == itemId);
 
   if (cartItem) {
-    shoppingCart.map(item => {
+    shoppingCart = shoppingCart.map(item => {
       if (item.id != cartItem.id) return item;
 
       const quantity = item.quantity + 1;
       const price = quantity * item.price;
 
       item = {...item, quantity, price};
+
+      return item;
     })
   } else {
     let newItem = {...course, quantity: 1} 
