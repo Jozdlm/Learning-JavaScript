@@ -97,6 +97,12 @@ ul {
     border:none;
 }
 
+.courses-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    row-gap: 28px;
+}
 
 .barra {
     padding: 20px 0;
