@@ -82,8 +82,24 @@ function renderCourses(courses) {
 }
 
 function addToCart(itemId) {
-  const item = COURSES.find(item => item.id == itemId);
-  shoppingCart = [...shoppingCart, item];
+  const cartItem = shoppingCart.find(item => item.id == itemId);
+  const course = COURSES.find(item => item.id == itemId);
+
+  if (cartItem) {
+    shoppingCart.map(item => {
+      if (item.id != cartItem.id) return item;
+
+      const quantity = item.quantity + 1;
+      const price = quantity * item.price;
+
+      item = {...item, quantity, price};
+    })
+  } else {
+    let newItem = {...course, quantity: 1} 
+
+    shoppingCart = [...shoppingCart, newItem];
+  }
+
   console.log(shoppingCart);
 }
 
