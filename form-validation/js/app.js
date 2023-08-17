@@ -15,6 +15,12 @@ function requiredValidator(e) {
 function emailValidator() {}
 
 function showAlert(message, wrapperRef) {
+  const currError = wrapperRef.querySelector(".bg-red-600");
+
+  if (currError) {
+    currError.remove();
+  }
+
   const error = document.createElement("p");
   error.textContent = message;
   error.classList.add("bg-red-600", "text-white", "p-2", "text-center");
