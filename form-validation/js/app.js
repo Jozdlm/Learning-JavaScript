@@ -9,10 +9,18 @@ function requiredValidator(e) {
 
   if (value.trim() === "") {
     showAlert(`El campo ${name} es requerido`, wrapperRef);
+    return;
   }
+
+  hideAlert(wrapperRef);
 }
 
 function emailValidator() {}
+
+function hideAlert(wrapperRef) {
+  const currError = wrapperRef.querySelector(".bg-red-600");
+  currError.remove();
+}
 
 function showAlert(message, wrapperRef) {
   const currError = wrapperRef.querySelector(".bg-red-600");
