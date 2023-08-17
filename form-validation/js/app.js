@@ -5,20 +5,21 @@ const contactForm = document.getElementById("formulario");
 
 function requiredValidator(e) {
   const { name, value } = e.target;
+  const wrapperRef = e.target.parentElement;
 
   if (value.trim() === "") {
-    showAlert(`El campo ${name} es requerido`);
+    showAlert(`El campo ${name} es requerido`, wrapperRef);
   }
 }
 
 function emailValidator() {}
 
-function showAlert(message) {
+function showAlert(message, wrapperRef) {
   const error = document.createElement("p");
   error.textContent = message;
   error.classList.add("bg-red-600", "text-white", "p-2", "text-center");
 
-  contactForm.appendChild(error);
+  wrapperRef.appendChild(error);
 }
 
 function main() {
