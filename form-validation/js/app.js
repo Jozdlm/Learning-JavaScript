@@ -15,7 +15,17 @@ function requiredValidator(e) {
   hideAlert(wrapperRef);
 }
 
-function emailValidator() {}
+function emailValidator(e) {
+  const { value, parentElement } = e.target;
+  const regex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+  if (!regex.test(value)) {
+    showAlert(`Debe ingresar un email valido`, parentElement);
+    return;
+  }
+
+  hideAlert(parentElement);
+}
 
 function hideAlert(wrapperRef) {
   const currError = wrapperRef.querySelector(".bg-red-600");
@@ -37,7 +47,7 @@ function showAlert(message, wrapperRef) {
 }
 
 function main() {
-  emailInput.addEventListener("blur", requiredValidator);
+  emailInput.addEventListener("blur", emailValidator);
   asuntoInput.addEventListener("blur", requiredValidator);
   mensajeInput.addEventListener("blur", requiredValidator);
 }
