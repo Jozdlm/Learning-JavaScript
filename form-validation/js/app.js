@@ -2,6 +2,13 @@ const emailInput = document.getElementById("email");
 const asuntoInput = document.getElementById("asunto");
 const mensajeInput = document.getElementById("mensaje");
 const contactForm = document.getElementById("formulario");
+const submitButton = document.getElementById("send-button");
+
+const formValues = {
+  email: emailInput.value,
+  asunto: asuntoInput.value,
+  mensaje: mensajeInput.value
+}
 
 function requiredValidator(e) {
   const { name, value } = e.target;
@@ -12,11 +19,13 @@ function requiredValidator(e) {
     return;
   }
 
+  formValues[name] = value;
+  validateForm();
   hideAlert(wrapperRef);
 }
 
 function emailValidator(e) {
-  const { value, parentElement } = e.target;
+  const { value, name, parentElement } = e.target;
   const regex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
   if (!regex.test(value)) {
@@ -24,6 +33,8 @@ function emailValidator(e) {
     return;
   }
 
+  formValues[name] = value.toLowerCase();
+  validateForm();
   hideAlert(parentElement);
 }
 
@@ -44,6 +55,20 @@ function showAlert(message, wrapperRef) {
   error.classList.add("bg-red-600", "text-white", "p-2", "text-center");
 
   wrapperRef.appendChild(error);
+}
+
+function validateForm() {
+  const isValid = !Object.values(formValues).includes('');
+
+  console.dir(submitButton);
+  console.dir(isValid);
+
+  if (isValid) {
+    submitButton.disabled = false;
+    return;
+  }
+
+  submitButton.disabled = true;
 }
 
 function main() {
