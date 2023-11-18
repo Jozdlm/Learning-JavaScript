@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies JS</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    <a href="/liked-movies.html">Tus favoritos</a>
-</body>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Movies</h1>
+        <a href="/liked-movies.html">Tus favoritos</a>
+      </nav>
+
+      <section>
+        <search>
+          <label>
+            Buscar película
+            <input type="search" id="query" />
+          </label>
+        </search>
+        <div>
+          filters
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="movies-list">
+        <div>
+          <p>Thumbnail</p>
+          <p>Movie Title</p>
+          <p>Rating</p>
+        </div>
+      </section>
+      <div id="loading-list"></div>
+      <div id="empty-list"></div>
+    </main>
+  </body>
 </html>
