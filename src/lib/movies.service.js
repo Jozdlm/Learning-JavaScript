@@ -15,7 +15,19 @@ export const renderMovies = (movies, wrapper) => {
 
   movies.forEach((item) => {
     const movie = `
-      <p>${item.name}</p>
+      <div class="movie">
+        <div class="movie__header">
+          <p class="movie__thumb">${item.thumbnail}</p>
+          <div class="movie__buttons">
+            <button onclick="addToLikedList(${item.id})">Liked</button>
+            <button onclick="addToCollection(${item.id})">Add</button>
+          </div>
+        </div>
+        <div class="movie__info">
+          <p class="movie__title">${item.name}</p>
+          <p class="movie__rating">${item.rating}</p>
+        </div>
+      </div>
     `;
 
     const nodeElement = document.createElement("div");
