@@ -1,4 +1,5 @@
 import { API_URL } from "./constants.js";
+import { addToLikedList } from "./liked.service.js";
 
 export const getMovies = async () => {
   try {
@@ -19,8 +20,8 @@ export const renderMovies = (movies, wrapper) => {
         <div class="movie__header">
           <p class="movie__thumb">${item.thumbnail}</p>
           <div class="movie__buttons">
-            <button onclick="addToLikedList(${item.id})">Liked</button>
-            <button onclick="addToCollection(${item.id})">Add</button>
+            <button>Liked</button>
+            <button>Add</button>
           </div>
         </div>
         <div class="movie__info">
@@ -32,6 +33,11 @@ export const renderMovies = (movies, wrapper) => {
 
     const nodeElement = document.createElement("div");
     nodeElement.innerHTML = movie;
+
+    const buttons = nodeElement.getElementsByTagName('button');
+    buttons[0].onclick = () => addToLikedList(item.id);
+
+    // TODO: Add the onclick envent to collection button
 
     fragment.appendChild(nodeElement);
   });
