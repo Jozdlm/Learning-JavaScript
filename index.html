@@ -6,32 +6,33 @@
     <title>Movies JS</title>
 
     <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/home.css">
   </head>
   <body>
-    <header>
-      <nav>
-        <h1>Movies</h1>
-        <a href="/liked-movies.html">Tus favoritos</a>
-      </nav>
-
-      <section>
-        <search>
-          <label>
-            Buscar película
-            <input type="search" id="query" />
-          </label>
-        </search>
-        <div>
-          <p>filters</p>
-        </div>
-      </section>
-    </header>
-
-    <main>
-      <section id="movies-list"></section>
-      <div id="loading-list"></div>
-      <div id="empty-list"></div>
-    </main>
+    <div class="wrapper">
+      <header>
+        <nav>
+          <h1>Movies</h1>
+          <a href="/liked-movies.html">Tus favoritos</a>
+        </nav>
+        <section>
+          <search>
+            <label>
+              Buscar película
+              <input type="search" id="query" />
+            </label>
+          </search>
+          <div>
+            <p>filters</p>
+          </div>
+        </section>
+      </header>
+      <main>
+        <section id="movies-list"></section>
+        <div id="loading-list"></div>
+        <div id="empty-list"></div>
+      </main>
+    </div>
 
     <script type="module" src="src/home.js" defer></script>
   </body>
