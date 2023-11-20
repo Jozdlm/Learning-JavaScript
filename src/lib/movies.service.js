@@ -31,15 +31,14 @@ export const renderMovies = (movies, wrapper) => {
       </div>
     `;
 
-    const nodeElement = document.createElement("div");
-    nodeElement.innerHTML = movie;
+    const element = new DOMParser().parseFromString(movie, 'text/html');
 
-    const buttons = nodeElement.getElementsByTagName('button');
+    const buttons = element.body.getElementsByTagName('button');
     buttons[0].onclick = () => addToLikedList(item.id);
 
     // TODO: Add the onclick envent to collection button
 
-    fragment.appendChild(nodeElement);
+    fragment.appendChild(element.body.firstChild);
   });
 
   wrapper.innerHTML = "";
