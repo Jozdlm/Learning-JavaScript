@@ -11,6 +11,11 @@ export const getMovies = async () => {
   }
 };
 
+export const getMovieById = async (movieId) => {
+  const movies = await getMovies();
+  return movies.filter((item) => item.id === movieId)[0];
+}
+
 export const renderMovies = (movies, wrapper) => {
   const fragment = document.createDocumentFragment();
 
