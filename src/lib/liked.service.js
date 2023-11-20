@@ -3,7 +3,11 @@ import { getMovieById } from "./movies.service.js";
 const likedMovies = [];
 
 const saveListChanges = () => {
-  localStorage.setItem('liked-movies', JSON.stringify(likedMovies));
+  localStorage.setItem("liked-movies", JSON.stringify(likedMovies));
+};
+
+export const getLikedMovies = () => {
+  return JSON.parse(localStorage.getItem("liked-movies") || "");
 };
 
 export const addToLikedList = async (movieId) => {
