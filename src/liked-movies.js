@@ -1,8 +1,10 @@
-import { getLikedMovies } from "./lib/liked.service.js";
+import { getLikedMovies, renderLikedMovies } from "./lib/index.js";
+
+const likedWrapper = document.getElementById('liked-list');
 
 async function main() {
   const likedMovies = getLikedMovies();
-  console.log(likedMovies);
+  renderLikedMovies(likedMovies, likedWrapper);
 }
 
 main();
